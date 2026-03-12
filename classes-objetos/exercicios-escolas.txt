@@ -1,0 +1,9 @@
+/* Exercícios:
+  1. No molde da classe 'Senai', adicione o atributo 'statusFuncionamento' 
+     que deve iniciar sempre como 'false' (escola fechada por padrão).
+  2. Crie o método 'abrirEscola()' para alterar o status para 'true' e
+     exibir uma mensagem de boas-vindas.
+  3. Crie o método 'fecharEscola()' para alterar o status para 'false' e
+     avisar que as atividades encerraram.
+  4. Teste as funcionalidades nas instâncias criadas.
+*/
