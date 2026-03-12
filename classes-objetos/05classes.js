@@ -5,7 +5,7 @@ class Senai{
     // dentro de uma classe nao precisa da palavra function
 
     escreverEscola(){
-        console.log(`O código ${this.codigo} pertence a escola`)
+        console.log(`O código ${this.codigo} pertence a escola SENAI de ${this.cidade}.`)
     }
 }
 
@@ -20,8 +20,11 @@ senaiArqa.cidade = 'Araraquara';
 const senaiMat = new Senai();
 senaiMat.codigo = 145;
 senaiMat.cidade = 'Matão';
-senaiMat.rua = 'Rua Das Flores'
+senaiMat.rua = 'Rua Das Flores';
 
 // exibindo os dados no controle
 senaiArqa.descreverEscola();
 senaiMat.descreverEscola();
+
+console.log(senaiArqa);
+
