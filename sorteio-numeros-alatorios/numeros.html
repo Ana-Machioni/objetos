@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sorteador de Números Aleatórios</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <!-- atributo defer informa q o script sera carregado apos o DOM estar completo -->
+     <script defer src="./numeros.js"></script>
+</head>
+
+<body class="sorteador" >
+    
+    <header class="sorteador__header">
+        <h1 class="sorteador__title">Sorteador de Números Aleatórios</h1>
+    </header>
+
+    <main class="sorteador__main">
+
+        <section class="sorteador__intervalo intervalo">
+            
+            <label class="intervalo__label" for="valor-minimo">Valor Mínimo:<span
+                class="intervalo__valor intervalo__valor--min"></span></label>
+                <input class="intervalo__slider  intervalo__slider--min"  type="range" name="valor-minimo" min="1" max="100"
+                value="100"/>
+
+            <label class="intervalo__label" for="valor-maximo">Valor Maximo:<span
+                class="intervalo__valor intervalo__valor--max"></span></label>
+                <input class="intervalo__slider  intervalo__slider--max"  type="range" name="valor-maximo" min="1" max="100"
+                value="100"/>
+
+        </section>
+
+        <section class="sorteador__area area">
+            <button class="area__button">Sortear</button>
+            <span class="area__numero">0</span>
+        </section>
+
+        <section class="sorteador__historico historico">
+            <h2 class="historico__title">Histótico</h2>
+            <ul class="historico__lista"></ul>
+        </section>
+
+    </main>
+
+    <footer class="sorteador__footer">
+        <button class="sorteador__limpar">Limpar Histórico</button>
+    </footer>
+
+</body>
+</html>
