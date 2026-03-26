@@ -27,16 +27,14 @@ const botaoLimparHistorico = document.querySelector('.sorteador__limpar');
 // pega a área onde aparece mensagens na tela
 const mensagem = document.querySelector('.area__mensagem')
 
-// ==========================
-// DEBUG (testes no console)
-// ==========================
+
+// ========================== DEBUG (testes no console) ==========================
 
 console.log(sliderMin, sliderMax);
 // isso mostra no console se os sliders foram encontrados corretamente
 
-// ==========================
-//         FUNÇÕES
-// ==========================
+// ========================== FUNÇÕES ==========================
+
 
 const atualizarValorSlider = () => {
     // criando uma função chamada atualizarValorSlider
@@ -55,6 +53,30 @@ const atualizarValorSlider = () => {
     // aqui você pega elementos do HTML e coloca os valores dos sliders neles
     // ou seja: atualiza o número que aparece na tela
 };
+
+
+const validarIntervalo = () => {
+    const min = Number (sliderMin.value);
+    const max = Number (sliderMax.value);
+
+    if (min > max) {
+        sliderMin.value = max;
+        mensagem.textContent = 'o valor minimo nao pode ser maior que o valor maximo';
+    } else if (max < min) {
+        sliderMax.value = min;
+        mensagem.textContent = 'o valor maximo nao pode ser menor que o valor minimo';
+    } else {
+        mensagem.textContent = '';
+    }
+
+    atualizarValorSlider();
+};
+
+// atualiozar valor em tempo real
+sliderMin.addEventListener('input', validarIntervalo);
+sliderMax.addEventListener('input', validarIntervalo);
+
+atualizarValorSlider();
 
 // função para gerar um número aleatório 
 const gerarNumeroAleatorio = (min, max) => {
@@ -110,6 +132,8 @@ const limparHistorico = () => {
         elementoNumero.textContent = '0';
     }
 };
+
+
 
 
 // ==========================
