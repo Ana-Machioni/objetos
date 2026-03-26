@@ -1,0 +1,203 @@
+/* Importando uma fonte arredondada e fofa */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+:root {
+    --rosa-pastel: #deffff;
+    --rosa-escuro: #a2f2f2;
+    --amarelo-pastel: #ffffd1;
+    --amarelo-forte: #fdfd96;
+    --texto-cor: #6d5d6e;
+    --branco: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: var(--amarelo-pastel);
+    background-image: radial-gradient(var(--rosa-pastel) 1px, transparent 1px);
+    background-size: 20px 20px; /* Efeito de pontinhos fofos no fundo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--texto-cor);
+}
+
+.app-pwd {
+    background-color: var(--branco);
+    width: 90%;
+    max-width: 450px;
+    padding: 2rem;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(242, 162, 192, 0.3);
+    border: 4px solid var(--rosa-pastel);
+}
+
+/* Cabeçalho */
+.app-pwd__header {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: var(--rosa-escuro);
+    font-weight: 600;
+}
+
+/* Imagem/Logo */
+.app-pwd__logo {
+    display: block;
+    margin: 0 auto 20px;
+    max-width: 120px;
+    filter: drop-shadow(2px 2px 0px var(--amarelo-pastel));
+}
+
+/* Inputs e Sliders */
+.app-pwd__main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.app-pwd__text {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.app-pwd__size {
+    color: var(--rosa-escuro);
+    font-size: 1.2rem;
+}
+
+.app-pwd__slider {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--amarelo-pastel);
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.app-pwd__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--rosa-escuro);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid var(--branco);
+}
+
+/* Opções (Checkboxes) */
+.app-pwd__options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fff9fb;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.app-pwd__option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform 0.2s;
+}
+
+.app-pwd__option:hover {
+    transform: translateX(5px);
+}
+
+/* Botões */
+.app-pwd__button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.app-pwd__button {
+    flex: 2;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    background-color: var(--rosa-pastel);
+    color: var(--texto-cor);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 4px solid var(--rosa-escuro);
+}
+
+.app-pwd__button:hover {
+    background-color: var(--rosa-escuro);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.app-pwd__button--clear {
+    flex: 1;
+    background-color: var(--amarelo-pastel);
+    border-bottom: 4px solid var(--amarelo-forte);
+}
+
+/* Resultado da Senha */
+.app-pwd__result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--amarelo-pastel);
+    border-radius: 20px;
+    text-align: center;
+    border: 2px dashed var(--rosa-escuro);
+}
+
+.app-pwd__output {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--rosa-escuro);
+    word-break: break-all;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.app-pwd__tooltip {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Histórico */
+.app-pwd__history {
+    margin-top: 20px;
+    border-top: 2px solid var(--amarelo-pastel);
+    padding-top: 15px;
+}
+
+.app-pwd__history-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.app-pwd__history-list {
+    list-style: none;
+    font-size: 0.9rem;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.app-pwd__history-list li {
+    padding: 5px;
+    border-bottom: 1px solid var(--amarelo-pastel);
+}
+
+/* Classe para esconder elementos */
+.hide {
+    display: none;
+}
