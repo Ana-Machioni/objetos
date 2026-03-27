@@ -81,3 +81,69 @@ const formatarDataHora = () => {
     return `${diaSemana}, ${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
 
 }
+
+/* funcao que atualiza o cabeçalho com a saudacao e a data/hora atual */
+const atualizarHeader = () => {
+    welcomeElement.textContent = `${getSaudacao()}!`;
+    datetimeElement.textContent = formatarDataHora();
+};
+
+/* atualizar header a cada segundo */
+setInterval(atualizarHeader, 1000);
+
+/* inicializar header */
+atualizarHeader();
+
+
+/* exibe inicialmente o valor  do slider */
+sizePassword.textContent = sliderElement.value;
+
+/* atualiza o valor exibido do tamanho da snha conforme o slider é movimentado */
+sliderElement.addEventListener('input', (e) => {
+    sizePassword.textContent = e.target.value;
+});
+
+
+
+/* funca princpla p gerar a senha */
+const generatePassword = () => {
+
+};
+
+/* funcao para copiar a senha gerada p a area de transferencia */
+const copyPassword = () => {
+    alert('senha copiada com sucesso!'); //exibe um alerta de sucesso
+    navigator.clipboard.writeText(novaSenha); //copia a senha usando a API 
+};
+
+/* adicionar os event listeners para os eventos de clique */
+buttonElement.addEventListener('click', generatePassword);  //gera nova senha
+containerPassword.addEventListener('click', copyPassword);  //copia nova senha
+
+/* funcao p limpar os dados e esconer os containers */
+const clearData = ()  => {
+    // limpar o historico de senhas
+    historicoSenhas= [];
+    novaSenha = '';
+
+    /* esconder os containers */
+    containerPassword.classList.add('hide');
+    const historico = document.querySelector('.app-pwd__history');
+    if (historico) {
+        historico.style.display = 'none';
+    }
+
+    /* reseta os checkboxes para o estado inicial (marcados) */
+    document.querySelector('.uppercase-check').checked = true;
+    document.querySelector('.lowercase-check').checked = true;
+    document.querySelector('.numbers-check').checked = true;
+    document.querySelector('.special-check').checked = true;
+
+    /* reseta o slider para ovalor inicial */
+    sliderElement.value = 8;
+    sizePassword.textContent = '8';
+
+};   
+
+/* adiciona o event listener p o botao de limpar */
+clearButton.addEventListener('click', clearData);
