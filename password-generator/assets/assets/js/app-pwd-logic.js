@@ -23,6 +23,8 @@ const charsets = {
     special: '!@#$%&*' //caracteres especiais
 };
 
+
+
 /* variaveis para armazenas a senha atual e o historico de senhas */
 let novaSenha = ''; //armazena a senha atual gerada
 let historicoSenhas = []; //array para armazenar os ultimos senhas geradas
@@ -40,7 +42,7 @@ const getSaudacao = () => {
    */
 
     if (hora < 12) return 'Bom dia';
-    if (hora < 18) return 'Boa noite';
+    if (hora < 18) return 'Boa tarde';
     return 'Boa noite';
 };
 
@@ -107,6 +109,69 @@ sliderElement.addEventListener('input', (e) => {
 
 /* funca princpla p gerar a senha */
 const generatePassword = () => {
+
+    let selectedCharset = ''; //string que armazenara todos os caracteres possiveis p a senha
+
+    /* obter os checkboxes selecionados */
+    const uppercaseChecked = document.querySelector('.uppercase-check').checked;
+    const lowercaseChecked = document.querySelector('.lowercase-check').checked;
+    const numbersChecked = document.querySelector('.numbers-check').checked;
+    const specialChecked = document.querySelector('.special-check').checked;
+
+
+    /* construir o charset baseado nas opcoes selecionadas */
+    if (uppercaseChecked) selectedCharset += charsets.uppercase;
+    if (lowercaseChecked) selectedCharset += charsets.lowercase;
+    if (numbersChecked)  selectedCharset += charsets.numbers;
+    if (specialChecked)  selectedCharset += charsets.special;
+
+    /* se nenhuma opcao estiver selecionada, selecionar todos */
+    if (!selectedCharset) {
+        selectedCharset = Object.values(charsets).join('');
+        console.log(selectedCharset);
+        document.querySelector('.uppercase-check').checked = true;
+        document.querySelector('.lowercase-check').checked = true;
+        document.querySelector('numbers-check').checked = true;
+        document.querySelector('.special-check').checked = true;
+    }
+
+    //inicializa uma string vazia para armaznar a senha gerada
+    let pass = '';
+
+    /* loop que itera pelo numero de caracteres definido no slide 
+    Usa operador de incremento (++) para aumentar  o contdor */
+
+    for (let i = 0; i < sliderElement.value; ++i) {
+        /* add um caractere aleatorio a senha:
+         */
+
+        pass += selectedCharset.charAt(Math.floor(Math.random() * selectedCharset.length));
+
+    }
+    /*  remove a claasse 'hide'*/
+    containerPassword.classList.remove('hide');
+
+    password.textContent = pass;
+
+    novaSenha = pass;
+
+    historicoSenhas.unshift(pass);
+
+    if (historicoSenhas.length > 3) {
+        historicoSenhas.pop()
+    }
+
+    const historico = document.querySelector('.app-pwd__history');
+    if (historico) {
+
+        historico.style.display = 'block';
+
+
+        historico.querySelector('.app-pwd__history-list').innerHTML = historicoSenhas
+            .map(senha => `<li class="app-pwd__history-item">${senha}</li>`)
+            .join('');
+
+    }
 
 };
 

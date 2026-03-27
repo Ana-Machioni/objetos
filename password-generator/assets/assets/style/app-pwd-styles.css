@@ -37,9 +37,11 @@ body {
 
 /* LOGO */
 .app-pwd__logo {
-    width: 120px;
+    width: 100px;
     display: block;
-    margin: 0 auto 15px;
+    margin: 0 auto 30px;
+    max-width: 280px;
+    
 }
 
 /* TEXTO */
